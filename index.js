@@ -5,6 +5,22 @@ var game_start = false;
 var level = 0;
 var buttonColours = ["red", "blue", "green", "yellow"];
 
+$(".reStart").click(function(){
+    if (!game_start) {
+        userClickedPattern = [];
+        gamePattern = [];
+        level = 0;
+        $("#level-title1").text("Level " + level);
+        $(".reStart").text("Reset");
+        nextSequence();
+        game_start = true;
+    }
+    else{
+        $("h1").text("Press Any Keyboard Key to Start");
+        $(".reStart").text("Start");
+        startOver();
+    }
+})
 $("body").keypress(function () {
     if (!game_start) {
         $("#level-title1").text("Level " + level);
